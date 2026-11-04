@@ -1,32 +1,45 @@
 # oxfea
 
-A K-drama and entertainment discovery portal — a warm, editorial fan magazine for K-drama lovers. "Your next obsession. Filed here."
+A K-drama discovery catalogue you can actually use — not just data files. "Your next obsession. Filed here."
 
-## What it is
+## Use it in 30 seconds
 
-- Categories you pick by mood: Romance, Comedy, Thriller, Healing
-- A drama grid with real working filters
-- A release calendar for premiere dates and episode schedules
-- Actor pages with filmographies
-- Community voting that genuinely works — not a mock
+```bash
+python3 -m http.server 8000
+# open http://localhost:8000
+```
 
-## Status
+Or publish this folder on GitHub Pages — no build step, no backend, no account.
 
-Framer prototype published; Webflow CMS rebuild in progress (Dramas, Categories, Actors collections). This repository holds the project's content data and design system.
+## What it does
+
+- **Search** real titles, Korean titles, and taglines
+- **Filter** by genre and by streaming service (Netflix, Disney+, TVING…)
+- **Surprise me** — a random pick from whatever you filtered to
+- **Watchlist** — saved in your browser (localStorage), no login
+- **Drama detail** — only the fields that are actually known for that title; nothing invented
+- **CLI, too:** `python3 oxfea.py list`, `python3 oxfea.py search runner`, `python3 oxfea.py pick --genre Romance`
 
 ## Contents
 
-- `content/dramas.json` — drama catalogue (starter set)
-- `content/categories.json` — categories with brand colors and taglines
+- `index.html`, `app.js`, `style.css` — the working site
+- `oxfea.py` — the terminal version of the same catalogue
+- `content/dramas.json` — drama catalogue (starter set, real titles only)
+- `content/categories.json` — categories with brand colours and taglines
+- `scripts/validate.py` — checks the data before it can break the site
 - `docs/design-system.md` — light editorial theme and layout rules
+
+## Add a drama
+
+Add one entry to `content/dramas.json`, then run `python3 scripts/validate.py`. See `CONTRIBUTING.md`. Only real, aired or announced titles — no invented entries, ratings, or synopses.
 
 ## Design
 
 Light theme only. Paper `#F7F4EE`, cards `#FFFFFF`, ink `#16130E`. Full spec in `docs/design-system.md`.
 
-## Contributing
+## Status
 
-Content is data: add a drama to `content/dramas.json` with title, network/streaming, schedule, and mood line where known. Only real, aired or announced titles — no invented entries.
+Starter catalogue of 8 titles. It becomes more useful as real titles are added — that is the honest state of the project, and the work that earns users over time.
 
 ## License
 
